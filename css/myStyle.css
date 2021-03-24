@@ -1,0 +1,45 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.parent-nav {
+    height: 85px
+}
+
+.custom-nav {
+    list-style: none !important;
+}
+
+.home-section {
+    height: 80vh !important
+}
+
+.custom-height {
+    height: 300px;
+}
+
+.custom-bg-light {
+    background-color:#e5e4e2 !important;
+}
+
+.custom-card {
+    width: 20%
+}
+
+/* .custom-icons {
+    display: none !important;
+} */
+
+.custom-icons:hover {
+    display: block !important;
+}
