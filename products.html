@@ -101,7 +101,14 @@
     </header>
 
     <main class="custom-bg-light">
+
         <div class="p-5">
+            <div id="success" class="alert alert-success my-2 mx-5" role="alert">Successfully added post</div>
+
+            <div class="d-flex pb-4 justify-content-end">
+                <button type="button" onclick="addPost()" class="btn btn-large btn-primary">Add Post</button>
+            </div>
+
             <table id="myTable" class="table">
                 <thead>
                   <tr>
@@ -115,12 +122,12 @@
             </table>
         </div>
 
-        <!-- Modal -->
+        <!-- View Modal -->
         <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">View Post</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -135,8 +142,38 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Post Modal -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add Post</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="titleInput" class="mb-3">
+                            <label for="addPostTitle" class="form-label">Title</label>
+                            <input class="form-control" id="addPostTitle" placeholder="Add a title">
+                        </div>
+
+                        <div id="bodyInput" class="mb-3">
+                            <label for="addPostBody" class="form-label">Body</label>
+                            <textarea class="form-control" id="addPostBody" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div id="loader" class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" onclick="savePost()" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
             </div>
