@@ -1,6 +1,6 @@
 $(document).ready(function () {
     getAllPosts();
-    $('#loader').hide();
+    $('.loader').hide();
     $('#success').hide();
 });
 
@@ -20,6 +20,7 @@ function getAllPosts(){
                         <td>${element.body}</td>
                         <td>
                             <button type="button" onclick="viewPost(${element.id})" class="btn btn-sm btn-success">View</button>
+                            <button type="button" onclick="editPost(${element.id})" class="btn btn-sm btn-warning">Edit</button>
                         </td>
                     </tr>
                     `
@@ -42,12 +43,23 @@ function viewPost(id){
         })   
 }
 
+function editPost(id){
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then((response) => response.json())
+        .then((post) => {
+            $('#editPostTitle').val(post.title)
+            $('#editPostBody').val(post.body)
+            $('#hiddenField').val(id);
+            $('#editProductModal').modal('show');
+        })  
+}
+
 function addPost(){
     $('#addProductModal').modal('show')
 }
 
 function savePost(){
-    $('#loader').show()
+    $('.loader').show()
     let postTitle = $('#addPostTitle').val()
     let postbody = $('#addPostBody').val()
 
@@ -70,10 +82,36 @@ function savePost(){
     })
 }
 
+function saveEditedPost(){
+    $('.loader').show()
+    let postTitle = $('#editPostTitle').val()
+    let postbody = $('#editPostBody').val()
+    let postId = $('#hiddenField').val()
+
+    let data = {
+        id: postId,
+        title: postTitle,
+        body: postbody,
+        userId: 1
+    }
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        }
+    })
+    .then((response) => response.json())
+    .then(jsonResponse => {
+        cleanUp()
+    })
+}
+
 function cleanUp(){
     $('#success').show();
 
-    $('#loader').hide()
+    $('.loader').hide()
     resetForm()
 
     setTimeout(() => {
