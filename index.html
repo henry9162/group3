@@ -6,312 +6,56 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <title>Gems</title>
+    <title>WebHook</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     <link href="./css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="./css/myStyle.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/f1ddc3a4c7.js"></script>
-    <script src="./js/airtable.js"></script>
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="d-flex justify-content-between align-items-center bg-dark px-5">
-        <div>
-            <button class="btn btn-sm bg-transparent text-white">About Us</button>
-            <button class="btn btn-sm bg-transparent text-white">Our Policy</button>
-        </div>
-        <div class="d-flex">
-            <li class="nav-item dropdown d-inline fs-6">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    English
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
+<body style="width: 100%">
+    
+    <div style="width: 100%">
+        <div id="success" class="alert alert-success mb-2 mt-4 mx-5" role="alert">Webhook request was Successfully</div>
 
-            <li class="nav-item dropdown d-inline fs-6">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    USD
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </li>
+        <div class="d-flex justify-content-center align-items-center mt-5">
+            <div class="card" style="width: 30%;">
+                <h5 class="card-header py-3">Web Hook</h5>
+                <div class="card-body">
+                    <div class="px-3 pt-1">
+                        <div class="mb-3">
+                            <label for="accountNumberInput1" class="form-label">Account Number</label>
+                            <input class="form-control" id="accountNumberInput1" placeholder="Account number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="amountInput1" class="form-label">Transaction Amount</label>
+                            <input class="form-control" id="amountInput1" placeholder="Amount">
+                        </div>
+                        <div class="mb-4">
+                            <label for="referenceInput1" class="form-label">Transaction Reference</label>
+                            <input class="form-control" id="referenceInput1" placeholder="Any random 12 digit number">
+                        </div>
+                        <div class="text-center mb-3">
+                            <div class="spinner-border loader text-primary" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <button id="submitBtn" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <header class="sticky-top">
-        <div class="navbar sticky-top navbar-white bg-white shadow-sm parent-nav">
-            <div class="d-flex justify-content-between align-items-center px-5 w-100">
-                <div class="px-4 py-0 bg-secondary text-white h-75">LOGO</div>
-                <div class="d-flex custom-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active text-secondary" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Men</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Women</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="./products.html" class="nav-link text-secondary" href="#">Product</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Pages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Blogs</a>
-                    </li>   
-                </div>
-                <div class="d-flex custom-nav">
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">
-                            <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-secondary" href="#">
-                            <i class="fa fa-envelope-open-o" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </div>
-            </div>
-        </div>
-    </header>
+    
 
-    <main class="custom-bg-light">
-        <section class="py-5 custom-bg-light text-center container home-section d-flex justify-content-center align-items-center">
-            <div class="">
-                <div class="">
-                    <h1 class="">Enjoy This</h1>
-                    <h1 class="">Winter Trend</h1>
-                    <p class="lead text-muted">Discover now latest collection</p>
-                    <p>
-                        <a href="#" class="btn btn-lg btn-outline-secondary my-2">Shop now</a>
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="bg-white py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="custom-bg-light d-flex pb-4 pe-5 justify-content-end align-items-end custom-height">
-                            <button class="btn btn-lg bg-white">New Arrivals</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="custom-bg-light d-flex pb-4 justify-content-center align-items-end custom-height">
-                            <button class="btn btn-sm bg-white">Women Collection</button>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="custom-bg-light d-flex pb-4 justify-content-center align-items-end custom-height">
-                            <button class="btn btn-sm bg-white">Men Collection</button>
-                        </div>
-                    </div>
-                </div>
+   
 
-                <div class="mt-5">
-                    <div class="d-flex justify-content-center pt-3">
-                        <h3>Featured Products</h3>
-                    </div>
 
-                    <div class="d-flex justify-content-evenly mt-5" style="width: 100%">
-                        <div class="custom-card">
-                            <div class="d-flex custom-bg-light justify-content-center align-items-end pb-4 custom-height">
-                                <div class="d-flex custom-icons">
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-random" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <div>Short Straight Coat</div>
-                                <div>$416.00</div>
-                            </div>
-                        </div>
-
-                        <div class="custom-card mx-4">
-                            <div class="d-flex custom-bg-light justify-content-center align-items-end pb-4 custom-height">
-                                <div class="d-flex custom-icons">
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-random" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <div>Short Straight Coat</div>
-                                <div>$416.00</div>
-                            </div>
-                        </div>
-
-                        <div class="custom-card">
-                            <div class="d-flex custom-bg-light justify-content-center align-items-end pb-4 custom-height">
-                                <div class="d-flex custom-icons">
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-random" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <div>Short Straight Coat</div>
-                                <div>$416.00</div>
-                            </div>
-                        </div>
-
-                        <div class="custom-card mx-4">
-                            <div class="d-flex custom-bg-light justify-content-center align-items-end pb-4 custom-height">
-                                <div class="d-flex custom-icons">
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-random" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <div>Short Straight Coat</div>
-                                <div>$416.00</div>
-                            </div>
-                        </div>
-
-                        <div class="custom-card">
-                            <div class="d-flex custom-bg-light justify-content-center align-items-end pb-4 custom-height">
-                                <div class="d-flex custom-icons">
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-search" aria-hidden="true"></i>
-                                    </button>
-                                    <button class="bg-white border-0">
-                                        <i class="fa fa-random" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="text-muted mt-3">
-                                <div>Short Straight Coat</div>
-                                <div>$416.00</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-center mt-5 mb-3">
-                        <button class="btn bg-dark text-white">Load More</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-                
-            </div>
-        </div>
-    </main>
-
-    <footer class="text-muted py-5">
-        <div class="container">
-            <p class="float-end mb-1">
-                <a href="#">Back to top</a>
-            </p>
-            <p class="mb-1">&copy; GemPages for Html and css assessment only!</p>
-        </div>
-    </footer>
-
-    <script src="./js/airtable.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
+    <script src="./js/jquery-360.js"></script>
     <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
-    <script>
-        var Airtable = require('airtable');
-        var base = new Airtable({apiKey: 'keyYvUeWpqNd4ERjq'}).base('app3BrQortHrcHUQs');
-        var parser, xmlDoc;
-
-        function StringToXMLDom(string){
-            var xmlDoc=null;
-            if (window.DOMParser)
-            {
-                parser=new DOMParser();
-                xmlDoc=parser.parseFromString(string,"text/xml");
-            }
-            else 
-            {
-                xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
-                xmlDoc.async="false";
-                xmlDoc.loadXML(string);
-            }
-            return xmlDoc;
-        }
-
-        base('Table 1').find('recdTlkgvud94rsYe', function(err, record) {
-            if (err) { console.error(err); return; }
-            let input = JSON.stringify(record)
-            console.log(input);
-        });
-
-    </script>
-    <script type='text/javascript'
-        src='https://chat-widget-loader.ximasoftware.com/chat/952e18be-35ef-432b-981b-88bcd5bbe65b'
-        async='async'>
-    </script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="./js/webhook.js"></script>
   </body>
 </html>
