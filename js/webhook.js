@@ -13,14 +13,17 @@ function savePost(){
         $('.loader').show()
         
         let data = {
-            AccountNumber: $('#accountNumberInput1').val(),
+            BeneficiaryAccountNumber: $('#accountNumberInput1').val(),
             TransactionAmount: $('#amountInput1').val(),
             TransactionReference: $('#referenceInput1').val(),
             RequestId: "dwerwerew",
             TransactionDate: "2021-04-21 10:00:00",
-            TransactionSequence: "125712906",
+            TransactionSequence: "1257846",
             TransactionIndicator: "C",
-            Remarks: "Transfer"
+            Remarks: "Transfer",
+            SenderName: "Unwana Uforo",
+            SenderAccountNumber: "0051762787",
+            BankCode: "069"
         }
 
         fetch("https://xdwfw9kou5.execute-api.eu-west-2.amazonaws.com/dev/payment/BankTransfer/VirtualTransferHook", {
