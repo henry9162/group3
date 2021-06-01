@@ -23,7 +23,7 @@ function savePost(){
             Remarks: "Transfer",
             SenderName: "Unwana Uforo",
             SenderAccountNumber: "0051762787",
-            BankCode: "069"
+            BankCode: "058"
         }
 
         fetch("https://xdwfw9kou5.execute-api.eu-west-2.amazonaws.com/dev/payment/BankTransfer/VirtualTransferHook", {
