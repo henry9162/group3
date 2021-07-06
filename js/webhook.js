@@ -29,7 +29,7 @@ function savePost(currenyValue){
             SenderName: "Unwana Uforo",
             SenderAccountNumber: "0051762787",
             BankCode: "058",
-            currency: currenyValue
+            currency: parseInt(currenyValue)
         }
 
         console.log(data)
@@ -40,7 +40,7 @@ function savePost(currenyValue){
 
         fetch("https://9fhf3wc560.execute-api.eu-west-2.amazonaws.com/dev/payment/BankTransfer/VirtualTransferHook", {
             method: 'POST',
-            body: data,
+            body: JSON.stringify(data),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
                 'Authorization': 'application/json; charset=UTF-8',
