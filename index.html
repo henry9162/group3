@@ -36,6 +36,14 @@
                             <label for="referenceInput1" class="form-label">Transaction Reference</label>
                             <input class="form-control" id="referenceInput1" placeholder="Any random 12 digit number">
                         </div>
+                        <div class="mb-4">
+                            <label for="referenceInput1" class="form-label">Currency</label>
+                            <select class="form-select" id="currencyInput" aria-label="Default select example">
+                                <option selected>Select currency</option>
+                                <option value="566">Naira</option>
+                                <option value="840">Dollar</option>
+                            </select>
+                        </div>
                         <div class="text-center mb-3">
                             <div class="spinner-border loader text-primary" role="status">
                                 <span class="visually-hidden">Loading...</span>
@@ -57,5 +65,6 @@
     <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="./js/webhook.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js" async></script>
   </body>
 </html>
