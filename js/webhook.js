@@ -38,7 +38,7 @@ function savePost(currenyValue){
         // console.log(encryptedData);
         // debugger
 
-        fetch("https://9fhf3wc560.execute-api.eu-west-2.amazonaws.com/dev/payment/BankTransfer/VirtualTransferHook", {
+        fetch("https://test-api.squadinc.co/payment/BankTransfer/VirtualTransferHook", {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
