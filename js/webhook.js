@@ -29,7 +29,7 @@ function savePost(currenyValue){
             SenderName: "Unwana Uforo",
             SenderAccountNumber: "0051762787",
             BankCode: "058",
-            currency: parseInt(currenyValue)
+            currency: currenyValue
         }
 
         console.log(data)
